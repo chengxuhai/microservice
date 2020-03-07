@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: microservice-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+zuul:
+  ignored-services:
+    - '*'
+  routes:
+    dept:
+      serviceId: microservice-provider
+      path: /dept/**
+
+

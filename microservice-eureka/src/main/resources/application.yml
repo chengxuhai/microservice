@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: microservice-eureka
+  profiles:
+    active: master
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+
+---
+spring:
+  profiles: master
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: eureka01
+  client:
+    service-url:
+      defaultZone: http://eureka02:7002/eureka
+
+---
+spring:
+  profiles: slave
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka02
+  client:
+    service-url:
+      defaultZone: http://eureka01:7001/eureka

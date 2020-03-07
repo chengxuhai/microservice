@@ -1,0 +1,11 @@
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://172.16.200.131:3306/mydb?characterEncoding=UTF-8
+#    username: root
+#    password: ENC(yqLV8QzBc8Z0pHahdHk047a7maL0yV5/)
+#
+#mybatis:
+#  type-aliases-package: demo.microservice.entity
+#  configuration:
+#    map-underscore-to-camel-case: true

@@ -1,0 +1,17 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: microservice-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/chengxuhai/microservice-config-test.git
+          username:
+          password:
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka

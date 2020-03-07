@@ -1,0 +1,25 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: microservice-provider
+  cloud:
+    config:
+#      uri: http://localhost:8301
+      name: provider-config
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: microservice-config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+jasypt:
+  encryptor:
+    password: 123
+
