@@ -1,19 +1,19 @@
-package demo.microservice.zuul;
+package demo.microservice.gateway;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableZuulProxy
-public class ZuulApplication implements CommandLineRunner {
+@EnableEurekaClient
+public class GatewayApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZuulApplication.class);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 
     public void run(String... args) throws Exception {
-        System.out.println("zuul 启动成功");
+        System.out.println("gateway 启动成功");
     }
 }

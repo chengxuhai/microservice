@@ -18,4 +18,9 @@ zuul:
       serviceId: microservice-provider
       path: /dept/**
 
+# 设置超时时间
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
 

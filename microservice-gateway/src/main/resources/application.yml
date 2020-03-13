@@ -1,0 +1,41 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: microservice-gateway
+  redis:
+    host: 172.16.200.131
+    port: 6379
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true # 服务名小写
+      routes:
+        - id: microservice-provider
+          uri: lb://microservice-provider # lb 代表从注册中心获取服务
+          predicates:
+            - Path=/dept/** # - Query=xxx - Method=GET - Header=X-Request-Id, \d+
+          filters:
+            - StripPrefix=1 # 转发请求时不会带上/dept前缀
+            - name: Hystrix # 熔断配置
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback # 熔断url
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+

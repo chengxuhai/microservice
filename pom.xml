@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>demo.spring.cloud</groupId>
+    <groupId>demo.cloud</groupId>
     <artifactId>microservice</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -15,6 +15,8 @@
         <module>microservice-zuul</module>
         <module>microservice-config</module>
         <module>microservice-provider-config</module>
+        <module>microservice-gateway</module>
+        <module>microservice-feign</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -49,6 +51,24 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>2.1.1</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>2.1.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.66</version>
+        </dependency>
+    </dependencies>
 </project>
