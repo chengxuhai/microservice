@@ -1,0 +1,11 @@
+server:
+  port: 8005
+env: PRO
+app:
+  id: SampleApp
+apollo:
+  meta: http://172.16.200.131:18080
+  cluster: default
+  bootstrap:
+    enabled: true
+    namespaces: application,namespace1
