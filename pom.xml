@@ -17,6 +17,7 @@
         <module>microservice-provider-config</module>
         <module>microservice-gateway</module>
         <module>microservice-feign</module>
+        <module>microservice-apollo</module>
     </modules>
     <packaging>pom</packaging>
 

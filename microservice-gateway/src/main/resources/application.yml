@@ -24,6 +24,13 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback # 熔断url
+            - name: RequestRateLimiter  # 限流
+              args:
+                key-resolver: "#{@ipKeyResolver}"
+                # 令牌桶每秒填充平均速率,即每秒允许的平均请求数
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的容量，每秒允许的最大请求数
+                redis-rate-limiter.burstCapacity: 3
 
 hystrix:
   command:
